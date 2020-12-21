@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/pages/categories_meals_page.dart';
 import 'package:meals_app/pages/categories_page.dart';
 import 'package:meals_app/pages/meal_detail_page.dart';
+import 'package:meals_app/pages/tabs_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,13 +21,16 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Raleway',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: CategoriesPage(),
+      initialRoute: '/',
       routes: {
+        '/': (_) => TabsPage(),
         '/category-meals': (_) => CategoriesMealsPage(),
         '/meal': (_) => MealDetailPage(),
       },
       onUnknownRoute: (settings) {
-        return MaterialPageRoute(builder: (ctx) => CategoriesPage());///ERROR PAGE 
+        return MaterialPageRoute(builder: (ctx) => CategoriesPage());
+
+        ///ERROR PAGE
       },
     );
   }
